@@ -11,6 +11,8 @@ const forecast=require('./utils/forecast')
 
 const app = express()   // express() dont take any arguments, we are configuring an appp
 
+const port= process.env.PORT||3000 // if port exist , if not exists 3000
+
 //imagine we own app.com, so we want to show something or web pages , and all of theses routes will run in single server
 //multiple routes will run in single server
 
@@ -158,7 +160,10 @@ app.get('*',(req,res)=>{
 
 
 
-app.listen(3000,()=>{
-    console.log('Server is running on port 3000')
-})  //listen to request from 3000 port
+// app.listen(3000,()=>{
+//     console.log('Server is running on port 3000')
+// })  //listen to request from 3000 port
 
+app.listen(port,()=>{
+    console.log('Server is running on port '+port)
+})  //listen to request from 3000 port
